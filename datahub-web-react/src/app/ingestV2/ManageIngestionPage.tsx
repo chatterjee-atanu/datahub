@@ -13,6 +13,7 @@ import { OnboardingTour } from '@app/onboarding/OnboardingTour';
 import { INGESTION_CREATE_SOURCE_ID } from '@app/onboarding/config/IngestionOnboardingConfig';
 import { useAppConfig } from '@app/useAppConfig';
 import { useShowNavBarRedesign } from '@app/useShowNavBarRedesign';
+import { SourceRunList } from './sourceRun/SourceRunList';
 
 const PageContainer = styled.div<{ $isShowNavBarRedesign?: boolean }>`
     padding-top: 20px;
@@ -99,6 +100,11 @@ export const ManageIngestionPage = () => {
             ),
             key: TabType.Sources as string,
             name: TabType.Sources as string,
+        },
+        {
+            component: <SourceRunList showCreateModal={showCreateSecretModal} setShowCreateModal={setShowCreateSecretModal}/>,
+            key: TabType.SourceRuns as string,
+            name: TabType.SourceRuns as string,
         },
         showSecretsTab && {
             component: (
